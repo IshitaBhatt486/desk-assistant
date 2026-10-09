@@ -5,12 +5,12 @@
 
 # ---------- L298N ----------
 LEFT_EN = 12       # Physical pin 12
-LEFT_IN1 = 17      # Physical pin 16
-LEFT_IN2 = 27      # Physical pin 18
+LEFT_IN1 = 27      # Physical pin 13
+LEFT_IN2 = 17      # Physical pin 11
 
-RIGHT_EN = 19      # Physical pin 35
-RIGHT_IN1 = 22     # Physical pin 13
-RIGHT_IN2 = 13     # Physical pin 15
+RIGHT_EN = 6        # Physical pin 31
+RIGHT_IN1 = 23      # Physical pin 16
+RIGHT_IN2 = 22      # Physical pin 15
 
 
 # ---------- Encoders ----------
@@ -26,7 +26,7 @@ RIGHT_ENCODER_B = 6   # Physical pin 36
 # from your Step 1 setup.
 
 LEFT_MOTOR_INVERTED = False
-RIGHT_MOTOR_INVERTED = True
+RIGHT_MOTOR_INVERTED = False
 
 
 # ---------- Encoder direction ----------
