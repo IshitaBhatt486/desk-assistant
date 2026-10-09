@@ -35,17 +35,6 @@ COUNTS_PER_REV = 600
 CALIBRATION_REVOLUTIONS = 10
 
 
-left_encoder = RotaryEncoder(
-    LEFT_ENCODER_A,
-    LEFT_ENCODER_B
-)
-
-right_encoder = RotaryEncoder(
-    RIGHT_ENCODER_A,
-    RIGHT_ENCODER_B
-)
-
-
 def calibrate_encoder(name, encoder):
     print()
     print(f"--- {name} encoder ---")
@@ -112,37 +101,47 @@ def live_test(encoder, name):
 
 
 def main():
+    left_encoder = RotaryEncoder(
+        LEFT_ENCODER_A,
+        LEFT_ENCODER_B
+    )
+
+    right_encoder = RotaryEncoder(
+        RIGHT_ENCODER_A,
+        RIGHT_ENCODER_B
+    )
+
     print("======================================")
     print("        ENCODER TEST / CALIBRATION")
     print("======================================")
 
     print(f"\nCurrent COUNTS_PER_REV = {COUNTS_PER_REV}")
 
-    left_cpr = calibrate_encoder("LEFT", left_encoder)
-    right_cpr = calibrate_encoder("RIGHT", right_encoder)
-
-    average_cpr = (left_cpr + right_cpr) / 2
-
-    print("\n======================================")
-    print("CALIBRATION RESULT")
-    print("======================================")
-
-    print(f"Left counts/rev   = {left_cpr:.2f}")
-    print(f"Right counts/rev  = {right_cpr:.2f}")
-    print(f"Average           = {average_cpr:.2f}")
-
-    print("\nPut this value into encoder_test.py:")
-    print(f"\nCOUNTS_PER_REV = {round(average_cpr)}")
-
-    print(
-        "\nIf left and right are significantly different, "
-        "do not blindly average them."
-    )
-
-
-if __name__ == "__main__":
     try:
-        main()
+        left_cpr = calibrate_encoder("LEFT", left_encoder)
+        right_cpr = calibrate_encoder("RIGHT", right_encoder)
+
+        average_cpr = (left_cpr + right_cpr) / 2
+
+        print("\n======================================")
+        print("CALIBRATION RESULT")
+        print("======================================")
+
+        print(f"Left counts/rev   = {left_cpr:.2f}")
+        print(f"Right counts/rev  = {right_cpr:.2f}")
+        print(f"Average           = {average_cpr:.2f}")
+
+        print("\nPut this value into encoder_test.py:")
+        print(f"\nCOUNTS_PER_REV = {round(average_cpr)}")
+
+        print(
+            "\nIf left and right are significantly different, "
+            "do not blindly average them."
+        )
     finally:
         left_encoder.close()
         right_encoder.close()
+
+
+if __name__ == "__main__":
+    main()

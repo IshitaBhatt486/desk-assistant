@@ -1,3 +1,8 @@
+# first ssh
+```bash
+
+```
+(or give a common ground for battery and )
 ```bash
 boot pi and open terminal
 python3 --version
